@@ -114,15 +114,17 @@ int customers(int *coaches, int *waiting_room, int *first){
         //if no trainer avilible walk back to the waiting room
         sleep(0.1);
         int cust_wait = avalible(waiting_room,w_size, first);
-        printf("Moving customer to waiting room...\n");
-        print_info(coaches,waiting_room);
-        fflush(stdout);
+
 
         //if the waiting room is full
         if(cust_wait == -1){
             //leave the gym
             exit(0);
         }
+
+        printf("Moving customer to waiting room...\n");
+        print_info(coaches,waiting_room);
+        fflush(stdout);
 
         //waiting for a trainer to come get them
         while(waiting_room[cust_wait] == 1);
@@ -132,9 +134,6 @@ int customers(int *coaches, int *waiting_room, int *first){
         //getting the trainer and releasing it to the customer as well as the seat in the waiting room
         trainer = waiting_room[cust_wait] * -1;
         waiting_room[cust_wait] = 0;
-        printf("Coach walked back and found a customer in the waiting room!\n");
-        print_info(coaches,waiting_room);
-        fflush(stdout);
     }
 
     
