@@ -217,9 +217,9 @@ int deadlockDetection(int process, int temp, int resource){
     int amountWeight[6];
 
     for (int i = 0; i<6; i++){
-        // setting the the amount of weights in the facility to 20 of each weight type
-        amountWeight[i] = (rand() % 20);
-        printf( "The Customer is using %d of %s weights. \n", amountWeight[i], typeWeight[i]);
+        // setting the the amount of weights in the facility to 10 of each weight type
+        amountWeight[i] = (rand() % 10);
+        printf( "The Customer is using %d of %s lb weights. \n", amountWeight[i], typeWeight[i]);
     }
    
     int b = 0;
@@ -250,25 +250,25 @@ int deadlockDetection(int process, int temp, int resource){
                 scanf("%d", &current[m][n]);
         }
     }
-    printf("\nEnter The Maximum Claim Table:\n");
+    printf("\nEnter The Maximum Claim Table:");
     for(m = 0; m < process; m++) {
         for(n = 0; n < resource; n++) 
         {
                 scanf("%d", &maximum_claim[m][n]);
         }
     }
-    printf("\nThe Claim Vector \n");
+    printf("\nThe Claim Vector ");
     for(m = 0; m < resource; m++) {
         printf("\t%d ", maximum_resources[m]);
     }
-    printf("\n The Allocated Resource Table\n");
+    printf("\n The Allocated Resource Table ");
     for(m = 0; m < process; m++) {
         for(n = 0; n < resource; n++) {
                 printf("\t%d", current[m][n]);
         }
         printf("\n");
     }
-    printf("\nThe Maximum Claim Table \n");
+    printf("\nThe Maximum Claim Table ");
     for(m = 0; m < process; m++) {
         for(n = 0; n < resource; n++) {
                 printf("\t%d", maximum_claim[m][n]);
@@ -280,7 +280,7 @@ int deadlockDetection(int process, int temp, int resource){
                 allocation_table[n] = allocation_table[n] + current[m][n];
         }
     }
-    printf("\nAllocated Resources \n");
+    printf("\nAllocated Resources ");
     for(m = 0; m < resource; m++) {
         printf("\t%d", allocation_table[m]);
     }
